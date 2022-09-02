@@ -21,7 +21,7 @@ public class MainController implements Initializable {
 
     public void Connect() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx-crud", "root", "");
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -36,47 +36,27 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private Button addBtn;
-
-    @FXML
-    private TableColumn<?, ?> courseCol;
-
-    @FXML
-    private Button deleteBtn;
-
-    @FXML
-    private TableColumn<?, ?> emailCol;
-
-    @FXML
-    private TableColumn<?, ?> idCol;
-
-    @FXML
-    private TableColumn<?, ?> mobileCol;
-
-    @FXML
-    private TableColumn<?, ?> nameCol;
+    private TableColumn<?, ?> idCol, nameCol, emailCol, mobileCol, courseCol;
 
     @FXML
     private TableView<?> table;
 
     @FXML
-    private TextField textName;
+    private TextField txtName, txtEmail, txtMobile, txtCourse;
 
     @FXML
-    private TextField txtCourse;
-
-    @FXML
-    private TextField txtEmail;
-
-    @FXML
-    private TextField txtMobile;
-
-    @FXML
-    private Button updateBtn;
+    private Button addBtn, updateBtn, deleteBtn;
 
     @FXML
     void Add(ActionEvent event) {
+        String name, email, mobile, course;
 
+        name = txtName.getText();
+        email = txtEmail.getText();
+        mobile = txtMobile.getText();
+        course = txtCourse.getText();
+
+        System.out.println(name + " " + email + " " + mobile + " " + course);
     }
 
     @FXML
