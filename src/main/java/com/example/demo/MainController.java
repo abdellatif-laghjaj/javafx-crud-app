@@ -37,7 +37,7 @@ public class MainController implements Initializable {
     private TableColumn<?, ?> idCol, nameCol, emailCol, mobileCol, courseCol;
 
     @FXML
-    private TableView<?> table;
+    private TableView<Student> table;
 
     @FXML
     private TextField txtName, txtEmail, txtMobile, txtCourse;
@@ -106,17 +106,22 @@ public class MainController implements Initializable {
     public void Table() {
         Connect();
         ObservableList<Student> students = FXCollections.observableArrayList();
-        try{
+        try {
             preparedStatement = conn.prepareStatement("select * from registration");
             ResultSet result = preparedStatement.executeQuery();
 
-            while (result.next()){
+            while (result.next()) {
                 Student student = new Student();
                 student.setId(result.getString("id"));
                 student.setName(result.getString("name"));
                 student.setEmail(result.getString("email"));
                 student.setMobile(result.getString("mobile"));
                 student.setCourse(result.getString("course"));
+
+                students.add(student);
+
+                table.setItems(students);
+                idCol.setCellValueFactory(data -> data.getValue().idProperty());
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

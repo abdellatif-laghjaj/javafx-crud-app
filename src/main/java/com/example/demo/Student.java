@@ -18,40 +18,60 @@ public class Student {
         course = new SimpleStringProperty(this, "course");
     }
 
-    public StringProperty getId() {
+    public StringProperty idProperty() {
         return id;
     }
 
-    public StringProperty getName() {
-        return name;
-    }
-
-    public StringProperty getEmail() {
-        return email;
-    }
-
-    public StringProperty getMobile() {
-        return mobile;
-    }
-
-    public StringProperty getCourse() {
-        return course;
+    public String getId() {
+        return id.get();
     }
 
     public void setId(String id) {
         this.id.set(id);
     }
 
+    public StringProperty nameProperty() {
+        return name;
+    }
+
+    public String getName() {
+        return name.get();
+    }
+
     public void setName(String name) {
         this.name.set(name);
+    }
+
+    public StringProperty emailProperty() {
+        return email;
+    }
+
+    public String getEmail() {
+        return email.get();
     }
 
     public void setEmail(String email) {
         this.email.set(email);
     }
 
+    public StringProperty mobileProperty() {
+        return mobile;
+    }
+
+    public String getMobile() {
+        return mobile.get();
+    }
+
     public void setMobile(String mobile) {
         this.mobile.set(mobile);
+    }
+
+    public StringProperty courseProperty() {
+        return course;
+    }
+
+    public String getCourse() {
+        return course.get();
     }
 
     public void setCourse(String course) {
