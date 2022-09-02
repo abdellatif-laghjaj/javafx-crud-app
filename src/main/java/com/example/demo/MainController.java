@@ -55,11 +55,7 @@ public class MainController implements Initializable {
 
         if (name.isEmpty() || email.isEmpty() || mobile.isEmpty() || course.isEmpty()) {
             //show error alert
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Feilds cannot be empty");
-            alert.setContentText("Please fill all the fields");
-            alert.showAndWait();
+            showAlert(Alert.AlertType.ERROR, "Feilds are empty", "Please fill all the feilds");
         } else {
             try {
                 preparedStatement = conn.prepareStatement("insert into registration (name, email, mobile, course) values(?, ?, ?)");
@@ -67,6 +63,8 @@ public class MainController implements Initializable {
                 preparedStatement.setString(2, email);
                 preparedStatement.setString(3, mobile);
                 preparedStatement.setString(4, course);
+
+                preparedStatement.executeUpdate();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -81,5 +79,13 @@ public class MainController implements Initializable {
     @FXML
     void Update(ActionEvent event) {
 
+    }
+
+    public void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
