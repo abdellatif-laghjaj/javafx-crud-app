@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import 
+import java.sql;
 
 public class MainController implements Initializable {
     @Override
@@ -20,6 +20,7 @@ public class MainController implements Initializable {
     }
 
     Connection conn;
+
     @FXML
     private Button addBtn;
 
