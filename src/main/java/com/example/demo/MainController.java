@@ -14,25 +14,25 @@ import java.util.ResourceBundle;
 import java.sql.*;
 
 public class MainController implements Initializable {
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
-
     Connection conn;
     PreparedStatement preparedStatement;
-    int index = -1;
+    int index;
     int id;
 
-    public void connect() {
+    public void Connect() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx", "root", "");
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx-crud", "root", "");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Connect();
     }
 
     @FXML
