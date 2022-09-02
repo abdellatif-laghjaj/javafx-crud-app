@@ -109,6 +109,15 @@ public class MainController implements Initializable {
         try{
             preparedStatement = conn.prepareStatement("select * from registration");
             ResultSet result = preparedStatement.executeQuery();
+
+            while (result.next()){
+                Student student = new Student();
+                student.setId(result.getString("id"));
+                student.setName(result.getString("name"));
+                student.setEmail(result.getString("email"));
+                student.setMobile(result.getString("mobile"));
+                student.setCourse(result.getString("course"));
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
