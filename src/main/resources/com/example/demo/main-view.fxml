@@ -59,7 +59,7 @@
                 <Font size="20.0" />
             </font>
         </Button>
-        <TableView layoutX="338.0" layoutY="96.0" prefHeight="227.0" prefWidth="410.0">
+        <TableView fx:id="table" layoutX="338.0" layoutY="96.0" prefHeight="227.0" prefWidth="410.0">
             <columns>
                 <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="nameCol" prefWidth="75.0" text="Name" />
