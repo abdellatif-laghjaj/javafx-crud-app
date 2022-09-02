@@ -69,6 +69,7 @@ public class MainController implements Initializable {
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Record added successfully");
 
                 reset();
+                updateTable();
             } catch (SQLException e) {
                 showAlert(Alert.AlertType.ERROR, "Error", "Error while adding record");
                 e.printStackTrace();
@@ -99,5 +100,9 @@ public class MainController implements Initializable {
         txtEmail.setText("");
         txtMobile.setText("");
         txtCourse.setText("");
+    }
+
+    public void updateTable(){
+
     }
 }
