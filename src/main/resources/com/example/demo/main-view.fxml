@@ -39,7 +39,7 @@
                         <Font size="22.0" />
                     </font>
                 </Label>
-                <TextField fx:id="textName" layoutX="124.0" layoutY="30.0" prefHeight="25.0" prefWidth="182.0" promptText="Your name" />
+                <TextField fx:id="txtName" layoutX="124.0" layoutY="30.0" prefHeight="25.0" prefWidth="182.0" promptText="Your name" />
                 <TextField fx:id="txtEmail" layoutX="124.0" layoutY="79.0" prefHeight="25.0" prefWidth="182.0" promptText="Your email" />
                 <TextField fx:id="txtMobile" layoutX="124.0" layoutY="125.0" prefHeight="25.0" prefWidth="182.0" promptText="Your mobile" />
                 <TextField fx:id="txtCourse" layoutX="124.0" layoutY="171.0" prefHeight="25.0" prefWidth="182.0" promptText="Your course" />
