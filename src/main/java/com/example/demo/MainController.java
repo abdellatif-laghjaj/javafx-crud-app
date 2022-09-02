@@ -1,14 +1,15 @@
 package com.example.demo;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.util.ResourceBundle;
-
 import java.sql.*;
+import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
     Connection conn;
@@ -69,7 +70,7 @@ public class MainController implements Initializable {
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Record added successfully");
 
                 reset();
-                updateTable();
+                Table();
             } catch (SQLException e) {
                 showAlert(Alert.AlertType.ERROR, "Error", "Error while adding record");
                 e.printStackTrace();
@@ -102,7 +103,14 @@ public class MainController implements Initializable {
         txtCourse.setText("");
     }
 
-    public void updateTable(){
-
+    public void Table() {
+        Connect();
+        ObservableList<Student> students = FXCollections.observableArrayList();
+        try{
+            preparedStatement = conn.prepareStatement("select * from registration");
+            ResultSet result = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
