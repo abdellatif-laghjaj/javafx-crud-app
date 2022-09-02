@@ -58,7 +58,7 @@ public class MainController implements Initializable {
             showAlert(Alert.AlertType.ERROR, "Feilds are empty", "Please fill all the feilds");
         } else {
             try {
-                preparedStatement = conn.prepareStatement("insert into registration (name, email, mobile, course) values(?, ?, ?)");
+                preparedStatement = conn.prepareStatement("insert into registration (name, email, mobile, course) values(?, ?, ?, ?)");
                 preparedStatement.setString(1, name);
                 preparedStatement.setString(2, email);
                 preparedStatement.setString(3, mobile);
@@ -68,7 +68,8 @@ public class MainController implements Initializable {
 
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Record added successfully");
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                showAlert(Alert.AlertType.ERROR, "Error", "Error while adding record");
+                e.printStackTrace();
             }
         }
     }
