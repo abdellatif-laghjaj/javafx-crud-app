@@ -3,10 +3,7 @@ package com.example.demo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -56,7 +53,14 @@ public class MainController implements Initializable {
         mobile = txtMobile.getText();
         course = txtCourse.getText();
 
-        System.out.println(name + " " + email + " " + mobile + " " + course);
+        if (name.isEmpty() || email.isEmpty() || mobile.isEmpty() || course.isEmpty()) {
+            //show error alert
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Feilds cannot be empty");
+            alert.setContentText("Please fill all the fields");
+            alert.showAndWait();
+        }
     }
 
     @FXML
