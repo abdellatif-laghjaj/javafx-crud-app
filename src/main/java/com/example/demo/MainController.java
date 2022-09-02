@@ -20,7 +20,20 @@ public class MainController implements Initializable {
     }
 
     Connection conn;
+    PreparedStatement preparedStatement;
+    int index = -1;
+    int id;
 
+    public void connect() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx", "root", "");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @FXML
     private Button addBtn;
