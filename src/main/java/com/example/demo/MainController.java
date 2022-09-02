@@ -3,6 +3,7 @@ package com.example.demo;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class MainController {
@@ -16,6 +17,9 @@ public class MainController {
     private Button addBtn;
     private Button updateBtn;
     private Button deleteBtn;
+
+    @FXML
+    private TableView table;
 
     @FXML
     protected void Add() {
