@@ -34,7 +34,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private TableColumn<?, ?> idCol, nameCol, emailCol, mobileCol, courseCol;
+    private TableColumn<Student, String> idCol, nameCol, emailCol, mobileCol, courseCol;
 
     @FXML
     private TableView<Student> table;
@@ -122,6 +122,10 @@ public class MainController implements Initializable {
 
                 table.setItems(students);
                 idCol.setCellValueFactory(data -> data.getValue().idProperty());
+                nameCol.setCellValueFactory(data -> data.getValue().nameProperty());
+                emailCol.setCellValueFactory(data -> data.getValue().emailProperty());
+                mobileCol.setCellValueFactory(data -> data.getValue().mobileProperty());
+                courseCol.setCellValueFactory(data -> data.getValue().courseProperty());
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
