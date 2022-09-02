@@ -11,12 +11,15 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import 
+
 public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
+    Connection conn;
     @FXML
     private Button addBtn;
 
