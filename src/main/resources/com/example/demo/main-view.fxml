@@ -10,7 +10,8 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0"
-            prefWidth="758.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+            prefWidth="758.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo.MainController">
     <children>
         <Label layoutX="213.0" layoutY="30.0" text="Student Registration">
             <font>
