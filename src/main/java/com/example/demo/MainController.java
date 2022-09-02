@@ -131,5 +131,22 @@ public class MainController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        //display selected row data in textfields
+        table.setRowFactory(tv -> {
+            TableRow<Student> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty()) {
+                    Student rowData = row.getItem();
+                    index = row.getIndex();
+                    id = Integer.parseInt(rowData.getId());
+                    txtName.setText(rowData.getName());
+                    txtEmail.setText(rowData.getEmail());
+                    txtMobile.setText(rowData.getMobile());
+                    txtCourse.setText(rowData.getCourse());
+                }
+            });
+            return row;
+        });
     }
 }
