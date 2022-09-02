@@ -8,17 +8,17 @@ public class MainController {
     private Label welcomeText;
 
     @FXML
-    protected void Add(){
+    protected void Add() {
 
     }
 
     @FXML
-    protected void Update(){
+    protected void Update() {
 
     }
 
     @FXML
-    protected void Delete(){
+    protected void Delete() {
 
     }
 }
