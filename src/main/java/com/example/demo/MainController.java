@@ -65,6 +65,8 @@ public class MainController implements Initializable {
                 preparedStatement.setString(4, course);
 
                 preparedStatement.executeUpdate();
+
+                showAlert(Alert.AlertType.INFORMATION, "Success", "Record added successfully");
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
