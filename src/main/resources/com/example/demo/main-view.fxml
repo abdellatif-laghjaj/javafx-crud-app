@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -48,16 +49,25 @@
             <font>
                 <Font size="20.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Button fx:id="updateBtn" layoutX="119.0" layoutY="351.0" mnemonicParsing="false" onAction="#Update" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #A149FA;" text="Update" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Button fx:id="deleteBtn" layoutX="230.0" layoutY="351.0" mnemonicParsing="false" onAction="#Delete" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #FF1E00;" text="Delete" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <TableView fx:id="table" layoutX="338.0" layoutY="96.0" prefHeight="227.0" prefWidth="410.0">
             <columns>
