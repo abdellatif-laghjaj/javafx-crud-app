@@ -60,6 +60,16 @@ public class MainController implements Initializable {
             alert.setHeaderText("Feilds cannot be empty");
             alert.setContentText("Please fill all the fields");
             alert.showAndWait();
+        } else {
+            try {
+                preparedStatement = conn.prepareStatement("insert into registration (name, email, mobile, course) values(?, ?, ?)");
+                preparedStatement.setString(1, name);
+                preparedStatement.setString(2, email);
+                preparedStatement.setString(3, mobile);
+                preparedStatement.setString(4, course);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
