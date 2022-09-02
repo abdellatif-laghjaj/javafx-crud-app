@@ -1,38 +1,65 @@
 package com.example.demo;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class MainController {
-    @FXML
-    private TextField txtName;
-    private TextField txtEmail;
-    private TextField txtMobile;
-    private TextField txtCourse;
 
     @FXML
     private Button addBtn;
-    private Button updateBtn;
+
+    @FXML
+    private TableColumn<?, ?> courseCol;
+
+    @FXML
     private Button deleteBtn;
 
     @FXML
-    private TableView table;
+    private TableColumn<?, ?> emailCol;
 
     @FXML
-    protected void Add() {
+    private TableColumn<?, ?> idCol;
+
+    @FXML
+    private TableColumn<?, ?> mobileCol;
+
+    @FXML
+    private TableColumn<?, ?> nameCol;
+
+    @FXML
+    private TableView<?> table;
+
+    @FXML
+    private TextField textName;
+
+    @FXML
+    private TextField txtCourse;
+
+    @FXML
+    private TextField txtEmail;
+
+    @FXML
+    private TextField txtMobile;
+
+    @FXML
+    private Button updateBtn;
+
+    @FXML
+    void Add(ActionEvent event) {
 
     }
 
     @FXML
-    protected void Update() {
+    void Delete(ActionEvent event) {
 
     }
 
     @FXML
-    protected void Delete() {
+    void Update(ActionEvent event) {
 
     }
 }
