@@ -81,7 +81,22 @@ public class MainController implements Initializable {
 
     @FXML
     void Delete(ActionEvent event) {
-
+        index = table.getSelectionModel().getSelectedIndex();
+        if (index <= -1) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Please select a record to delete");
+            return;
+        }
+        id = Integer.parseInt(String.valueOf(table.getItems().get(index).getId()));
+        try {
+            preparedStatement = conn.prepareStatement("delete from registration where id = ?");
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Record deleted successfully");
+            reset();
+            Table();
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Error while deleting record");
+        }
     }
 
     @FXML
