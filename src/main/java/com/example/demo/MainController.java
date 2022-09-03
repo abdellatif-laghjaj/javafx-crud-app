@@ -86,7 +86,25 @@ public class MainController implements Initializable {
 
     @FXML
     void Update(ActionEvent event) {
+        Connect();
+        String name, email, mobile, course;
+        index = table.getSelectionModel().getSelectedIndex();
+        id = Integer.parseInt(table.getSelectionModel().getSelectedItem().getId());
 
+        try {
+            preparedStatement = conn.prepareStatement("update registration set name = ?, email = ?, mobile = ?, course = ? where id = ?");
+            preparedStatement.setString(1, txtName.getText());
+            preparedStatement.setString(2, txtEmail.getText());
+            preparedStatement.setString(3, txtMobile.getText());
+            preparedStatement.setString(4, txtCourse.getText());
+            preparedStatement.setInt(5, id);
+
+            preparedStatement.executeUpdate();
+            Table();
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Error while updating record");
+            throw new RuntimeException(e);
+        }
     }
 
     public void showAlert(Alert.AlertType alertType, String title, String message) {
