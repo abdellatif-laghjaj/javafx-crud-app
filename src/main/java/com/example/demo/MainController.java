@@ -89,7 +89,11 @@ public class MainController implements Initializable {
         Connect();
         String name, email, mobile, course;
         index = table.getSelectionModel().getSelectedIndex();
-        id = Integer.parseInt(table.getSelectionModel().getSelectedItem().getId());
+        if (index <= -1) id = Integer.parseInt(String.valueOf(table.getItems().get(index).getId()));
+        else {
+            showAlert(Alert.AlertType.ERROR, "Error", "Please select a record to update");
+            return;
+        }
 
         try {
             preparedStatement = conn.prepareStatement("update registration set name = ?, email = ?, mobile = ?, course = ? where id = ?");
