@@ -104,6 +104,7 @@ public class MainController implements Initializable {
             preparedStatement.setInt(5, id);
 
             preparedStatement.executeUpdate();
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Record updated successfully");
             Table();
         } catch (SQLException e) {
             showAlert(Alert.AlertType.ERROR, "Error", "Error while updating record");
